@@ -12,7 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
   };
@@ -33,15 +32,16 @@
     {
       nixosConfigurations = {
         nix-vm = nixpkgs.lib.nixosSystem {
-	  inherit system;
+          inherit system;
           modules = [
             vscode-server.nixosModules.default
             ./nix-vm/configuration.nix
-	  ];
-	};
+            ./nixModules
+          ];
+        };
       };
       homeConfigurations = {
-          "me@nix-vm" = home-manager.lib.homeManagerConfiguration {
+        "me@nix-vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [

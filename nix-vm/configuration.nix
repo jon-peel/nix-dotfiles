@@ -7,7 +7,6 @@
 
 
 {
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
     [ # Include the results of the hardware scan.
@@ -20,22 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot = {
-    initrd.kernelModules= [
-      "hv_balloon" "hv_netvsc" "hv_storvsc" "hv_utils" "hv_vmbus"
-    ];
-    initrd.availableKernelModules = ["hyperv_keyboard"];
-  };
-
-  systemd = {
-    packages = [ config.boot.kernelPackages.hyperv-daemons.lib ];
-    targets.hyperv-daemons = {
-      wantedBy = ["multi-user.target"];
-    };
-  };
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  os-hyperv-client.enable = true;
 
   networking.hostName = "nix-vm"; # Define your hostname.
   
@@ -60,17 +44,6 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   };
 
-
-  virtualisation.hypervGuest.enable = true;
-  #virtualisation.hypervGuest = {
-  #  enable = true;
-  #  videoMode = "1920x1080";
-  #};  
-  # boot.blacklistedKernalModules = [ "hyperv_fb" ];
-  systemd.services.hv-fcopy.enable = true;
-  systemd.services.hv-kvp.enable = true;
-  systemd.services.hv-vss.enable = true;
-  services.spice-vdagentd.enable = true;
 
 
   # Enable the X11 windowing system.
@@ -176,8 +149,6 @@
     xclip
 
     motif
-
-    config.boot.kernelPackages.hyperv-daemons.bin
   ];
 
 
