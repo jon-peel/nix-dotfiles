@@ -10,7 +10,7 @@
     enable = lib.mkEnableOption "OS is a Hyper-V client";
   };
 
-  config = lib.mkIf config.my-zsh.enable {
+  config = lib.mkIf config.os-hyperv-client.enable {
 
     boot = {
       initrd.kernelModules = [
