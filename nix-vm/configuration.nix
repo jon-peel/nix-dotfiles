@@ -20,6 +20,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   os-hyperv-client.enable = true;
+  desktop.fvwm.enable = true;
 
   networking.hostName = "nix-vm"; # Define your hostname.
   
@@ -46,48 +47,6 @@
 
 
 
-  # Enable the X11 windowing system.
-  services.xserver.desktopManager.xfce.enableScreensaver = false;
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    # desktopManager.xfce.enable = true;
-    windowManager.fvwm.enable = true;
-    # windowManager.ctwm.enable = true;
-    # windowManager.ctwm.enable = true;
-    #
-     # Create a custom session
-    #displayManager.sessionCommands = ''
-    #  ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "rgb:4e/7c/7b"
-    #'';
-    #
-    #windowManager.session = [{
-    #  name = "mwm";
-    #  start = ''
-    #    ${pkgs.motif}/bin/mwm &
-    #    waitPID=$!
-    #  '';
-    #}];
-
-  };
-  services.xrdp = {
-    enable = true;
-    # defaultWindowManager = "${pkgs.xfce.xfce4-session}/bin/xfce4-session";
-    # defaultWindowManager = "twm";
-    defaultWindowManager = "fvwm";
-    #defaultWindowManager = "${pkgs.motif}/bin/mwm";
-    openFirewall = true;
-  };
-  #environment.etc."xrdp/startwm.sh" = {
-    #text = ''
-    #  #!/bin/sh
-    #  . /etc/profile
-    #  ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "rgb:4e/7c/7b"
-    #  ${pkgs.motif}/bin/mwm
-    #  # twm
-    #'';
-    #mode = "0755";
-  #};
   programs.dconf.enable = true;
 
   
@@ -95,11 +54,6 @@
 
 
   # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
-  services.xserver = {
-    modules = [ pkgs.xorg.xf86videofbdev ];
-    videoDrivers = [ "hyperv_fb" ];
-  };
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -143,12 +97,12 @@
     vscode
     home-manager
     # Help with Hyper-V
-    xrdp
-    xorg.xhost
-    xorg.xorgserver
-    xclip
+    #xrdp
+    #xorg.xhost
+    #xorg.xorgserver
+    #xclip
 
-    motif
+    #motif
   ];
 
 

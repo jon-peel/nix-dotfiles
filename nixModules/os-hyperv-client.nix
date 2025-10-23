@@ -33,11 +33,7 @@
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
     virtualisation.hypervGuest.enable = true;
-    #virtualisation.hypervGuest = {
-    #  enable = true;
-    #  videoMode = "1920x1080";
-    #};
-    # boot.blacklistedKernalModules = [ "hyperv_fb" ];
+
     systemd.services.hv-fcopy.enable = true;
     systemd.services.hv-kvp.enable = true;
     systemd.services.hv-vss.enable = true;

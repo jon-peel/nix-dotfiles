@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./os-hyperv-client.nix ];
+  imports =
+    [ ./desktop
+      ./os-hyperv-client.nix ];
 }
