@@ -27,7 +27,6 @@
     services.xserver = {
       enable = true;
       displayManager.lightdm.enable = true;
-      windowManager.fvwm.enable = true;
     };
 
   };
