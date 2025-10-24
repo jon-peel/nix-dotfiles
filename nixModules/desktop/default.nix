@@ -8,6 +8,7 @@
 {
   imports = [
     ./fvwm.nix
+    ./gnome.nix
     ./xrdp.nix
   ];
 
