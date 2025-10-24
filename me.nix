@@ -19,6 +19,7 @@ in {
 
   desktop-apps.enable = true;
   my-dotnet.enable = true;
+  my-haskell.enable = true;
   my-oneDrive.enable = true;
 
   # Add to user PATH

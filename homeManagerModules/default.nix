@@ -5,6 +5,7 @@
               ./my-dotnet.nix
               ./my-emacs.nix
               ./my-git.nix
+              ./my-haskell.nix
               ./my-onedrive.nix
               ./my-python.nix
               ./my-xscreensaver.nix
