@@ -6,6 +6,7 @@
               ./my-emacs.nix
               ./my-git.nix
               ./my-haskell.nix
+              ./my-jetbrains.nix
               ./my-onedrive.nix
               ./my-python.nix
               ./my-xscreensaver.nix

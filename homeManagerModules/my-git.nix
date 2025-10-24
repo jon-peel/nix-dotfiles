@@ -11,9 +11,9 @@
   config = lib.mkIf config.my-git.enable {
     programs.git = {
       enable = true;
-      userName = "Jonathan Peel";
-      userEmail = "me@jonathanpeel.co.za";
-      extraConfig = {
+      settings.user = {
+        name = "Jonathan Peel";
+        email = "me@jonathanpeel.co.za";
         credential.helper = "store";
       };
     };
