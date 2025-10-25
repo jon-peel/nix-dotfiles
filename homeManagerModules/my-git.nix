@@ -14,8 +14,29 @@
       settings.user = {
         name = "Jonathan Peel";
         email = "me@jonathanpeel.co.za";
-        credential.helper = "store";
       };
     };
+
+    programs.gh = {
+      enable = true;
+
+      # login to git with `gh auth login`
+      gitCredentialHelper.enable = true;
+
+      settings = {
+        git_protocol = "ssh";
+
+        editor = "vim";
+        prompt = "enabled";
+
+        # Custom aliases
+        aliases = {
+          co = "pr checkout";
+          pv = "pr view";
+        };
+      };
+    };
+
+    home.packages = with pkgs; [ gh-markdown-preview ];
   };
 }

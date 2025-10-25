@@ -20,7 +20,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   os-hyperv-client.enable = true;
-  desktop.gnome.enable = true;
+  desktop.dwm.enable = true;
 
   networking.hostName = "nix-vm"; # Define your hostname.
   
