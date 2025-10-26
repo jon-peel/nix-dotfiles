@@ -44,6 +44,14 @@
             ./nixModules
           ];
         };
+        browsers = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            vscode-server.nixosModules.default
+            ./browsers/configuration.nix
+            ./nixModules
+          ];
+        };
       };
       homeConfigurations = {
         "me@nix-vm" = home-manager.lib.homeManagerConfiguration {
